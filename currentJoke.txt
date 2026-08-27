@@ -3,26 +3,20 @@ SAFE JOKE
 =========
 
 Category: Programming
-Joke ID: 36
+Joke ID: 43
 
 Original:
-"Knock, knock."
-"Who's there?"
-
-[very long pause]
-
-"Java."
+How do you tell HTML from HTML5?
+- Try it out in Internet Explorer
+- Did it work?
+- No?
+- It's HTML5.
 
 Translation language:
-IT
+None
 
 Translation:
-"Toc, toc."
-"Chi è?"
+None
 
-[lunghissima pausa]
-
-"Java."
-
-Words: 8
-Characters: 58
+Words: 23
+Characters: 101
