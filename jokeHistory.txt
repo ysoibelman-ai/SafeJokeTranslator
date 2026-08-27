@@ -1,56 +1,10 @@
 
 ------------------------------
-Joke ID: 179
-Language: IT
+Joke ID: 50
+Language: HE
 
 Original:
-Knock knock.
-Who's there?
-Recursion.
-Recursion who?
-Knock knock.
+Algorithm: A word used by programmers when they don't want to explain how their code works.
 
 Translation:
-Toc toc.
-Chi è?
-Ricorsione.
-Ricorsione chi?
-Toc toc.
-
-------------------------------
-Joke ID: 131
-Language: IT
-
-Original:
-Four engineers get into a car. The car won't start.
-The Mechanical engineer says "It's a broken starter".
-The Electrical engineer says "Dead battery".
-The Chemical engineer says "Impurities in the gasoline".
-The IT engineer says "Hey guys, I have an idea: How about we all get out of the car and get back in".
-
-Translation:
-Quattro ingegneri salgono su un'auto. L'auto non parte.
-L'ingegnere meccanico dice: «È il motorino di avviamento che è rotto».
-L'ingegnere elettrico dice: «La batteria è scarica».
-L'ingegnere chimico dice: «Ci sono impurità nella benzina».
-L'ingegnere informatico dice: «Ehi ragazzi, ho un'idea: che ne dite di scendere tutti dall'auto e risalirci?».
-
-------------------------------
-Joke ID: 36
-Language: IT
-
-Original:
-"Knock, knock."
-"Who's there?"
-
-[very long pause]
-
-"Java."
-
-Translation:
-"Toc, toc."
-"Chi è?"
-
-[lunghissima pausa]
-
-"Java."
+אלגוריתם: מילה שמתכנתים משתמשים בה כשהם לא רוצים להסביר איך הקוד שלהם עובד.

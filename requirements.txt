@@ -5,12 +5,14 @@ attrs==26.1.0
 certifi==2026.7.22
 charset-normalizer==3.5.1
 deepl==1.32.0
+dotenv==0.9.9
 frozenlist==1.8.0
 idna==3.19
 jokeapi==1.0.5
 multidict==6.7.1
 prompt_toolkit==3.0.53
 propcache==0.5.2
+python-dotenv==1.2.3
 questionary==2.1.1
 requests==2.34.2
 simplejson==3.20.2
