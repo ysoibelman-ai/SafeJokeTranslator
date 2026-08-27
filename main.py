@@ -20,9 +20,7 @@ def get_language():
 
 def get_joke():
     url = "https://v2.jokeapi.dev/joke/Programming?type=single&blacklistFlags=nsfw,religious,political,racist,sexist,explicit"
-    params = {}
     joke = get(url).json()
-    print (joke)
     return joke
 
 def is_safe_joke(joke_data):
@@ -43,7 +41,7 @@ def extract_joke_data(api_data):
     joke_info["joke"] = api_data["joke"]
     joke_info["category"] = api_data["category"]
     joke_info["joke_id"] = api_data["id"]
-    joke_info["language"] = api_data["language"]
+    joke_info["language"] = api_data["lang"]
 
     return joke_info
 
@@ -63,9 +61,37 @@ def translate_joke(joke,target_laguange):
     except:
         print ("No translation")
 
+def print_out(joke,translation,category,words,chars):
+    print(f"""
+
+SAFE PROGRAMMING JOKE
+=====================
+
+Original:
+{joke}
+
+Translation:
+{translation}
+
+Information:
+Category: {category}
+Words: {words}
+Characters: {chars}
+
+            """)
 
 
-translate_joke("Hello","HE")
+def main ():
+    language = get_language()
+    joke_json = get_safe_joke()
+    joke_info = extract_joke_data(joke_json)
+    joke_analysis = analyze_joke(joke_info)
+    translation = translate_joke(joke_info["joke"],language)
+    print_out(joke_info["joke"],translation,joke_info["category"],joke_analysis["Words"],joke_analysis["Characters"])
+
+
+main ()
+
 
 
 
