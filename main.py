@@ -1,5 +1,6 @@
 import json
 import csv
+import deepl
 from requests import get
 import questionary
 
@@ -8,16 +9,14 @@ def get_language():
     language = questionary.select("please choose a language:", choices = ["Hebrew","Spanish","French","Italian"]).ask()
     match language:
         case "Hebrew":
-            language = "hb"
+            language = "HB"
         case "Spanish":
-            language = "es"
+            language = "ES"
         case "French":
-            language = "fr"
+            language = "FR"
         case "Italian":
-            language = "it"
+            language = "IT"
     return language
-
-
 
 def get_joke():
     url = "https://v2.jokeapi.dev/joke/Programming?type=single&blacklistFlags=nsfw,religious,political,racist,sexist,explicit"
@@ -56,13 +55,17 @@ def analyze_joke(joke):
     return joke_analysis
 
 def translate_joke(joke,target_laguange):
-    url = "https://translated.net"
-    params_ = {"q": joke,"langpair": f"en|{target_laguange}"}  
-    translation = get(url, params=params_)
-    return translation
+    auth_key = "3269b51f-770a-40b6-99b1-204f919ac290:fx"
+    deepl_client = deepl.DeepLClient(auth_key)
+    try:
+        result = deepl_client.translate_text(joke, target_lang=target_laguange)
+        return result
+    except:
+        print ("No translation")
 
 
-print (translate_joke("Hello","hb"))
+
+translate_joke("Hello","HE")
 
 
 
