@@ -9,7 +9,7 @@ def get_language():
     language = questionary.select("please choose a language:", choices = ["Hebrew","Spanish","French","Italian"]).ask()
     match language:
         case "Hebrew":
-            language = "HB"
+            language = "HE"
         case "Spanish":
             language = "ES"
         case "French":
@@ -66,7 +66,6 @@ def print_out(joke,translation,category,words,chars):
 
 SAFE PROGRAMMING JOKE
 =====================
-
 Original:
 {joke}
 
@@ -80,17 +79,73 @@ Characters: {chars}
 
             """)
 
+def save_joke(joke_data, analysis, translated_joke, language, filename):
+    joke_format =f"""
+SAFE JOKE
+=========
+
+Category: {joke_data["category"]}
+Joke ID: {joke_data["joke_id"]}
+
+Original:
+{joke_data["joke"]}
+
+Translation language:
+{language}
+
+Translation:
+{translated_joke}
+
+Words: {analysis["Words"]}
+Characters: {analysis["Characters"]}"""
+
+    file = open(filename,"w",encoding="utf-8")
+    file.write(joke_format)
+    file.close()
+
+def add_to_history(joke_data, translated_joke, language, filename):
+    file = open (filename,"a+",encoding="utf-8")
+    joke_format = f"""
+------------------------------
+Joke ID: {joke_data["joke_id"]}
+Language: {language}
+
+Original:
+{joke_data["joke"]}
+
+Translation:
+{translated_joke}
+"""
+    file.write(joke_format)
+
+
+def joke_doesnt_exist(joke_id, filename):
+    file = open(filename,"r")
+    content = file.read()
+    file.close()
+    if f"Joke ID: {joke_id}" not in content:
+        return True
 
 def main ():
-    language = get_language()
-    joke_json = get_safe_joke()
-    joke_info = extract_joke_data(joke_json)
-    joke_analysis = analyze_joke(joke_info)
-    translation = translate_joke(joke_info["joke"],language)
-    print_out(joke_info["joke"],translation,joke_info["category"],joke_analysis["Words"],joke_analysis["Characters"])
 
+    for _ in range (3):
+        language = get_language()
+        joke_json = get_safe_joke()
+        if joke_json:
+            joke_info = extract_joke_data(joke_json)
+            joke_analysis = analyze_joke(joke_info)
+            translation = translate_joke(joke_info["joke"],language)
+            save_joke(joke_info,joke_analysis,translation,language,"currentJoke.txt")
+            if joke_doesnt_exist(joke_info["joke_id"],"jokeHistory.txt"):
+                add_to_history(joke_info,translation,language,"jokeHistory.txt")
+            else:
+                print ("joke already exists in history")
+
+
+    # print_out(joke_info["joke"],translation,joke_info["category"],joke_analysis["Words"],joke_analysis["Characters"])
 
 main ()
+
 
 
 
