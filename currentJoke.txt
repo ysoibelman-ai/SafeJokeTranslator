@@ -1,0 +1,28 @@
+
+SAFE JOKE
+=========
+
+Category: Programming
+Joke ID: 36
+
+Original:
+"Knock, knock."
+"Who's there?"
+
+[very long pause]
+
+"Java."
+
+Translation language:
+IT
+
+Translation:
+"Toc, toc."
+"Chi è?"
+
+[lunghissima pausa]
+
+"Java."
+
+Words: 8
+Characters: 58
